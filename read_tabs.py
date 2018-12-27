@@ -7,11 +7,24 @@ path = "{}/tablature/bitesDust.txt".format(root)
 with open(path, 'r') as tabText:
     tabLines = tabText.readlines()
 
-# TODO: use threading to read 4 strings simultaneously
-# print notes
+# TODO: read notes into list in order for nearest neighbour algorithm
 tabLines = [t.strip() for t in tabLines if t.strip() != '']
-for line in tabLines:
-    string = line[0]
-    for note in line:
-        if note.isdigit():
-            print(stringMap.map[note + string])
+# loop through each grouping of strings, retrieve notes, print mapped note if fret recorded
+for n in range(0, len(tabLines), 4):
+    for i in range(1, len(tabLines[n])):
+        gNote = tabLines[n][i]
+        dNote = tabLines[n+1][i]
+        aNote = tabLines[n+2][i]
+        eNote = tabLines[n+3][i]
+        if gNote.isdigit():
+            string = tabLines[n][0]
+            print(stringMap.map[gNote + string])
+        elif dNote.isdigit():
+            string = tabLines[n+1][0]
+            print(stringMap.map[dNote + string])
+        elif aNote.isdigit():
+            string = tabLines[n+2][0]
+            print(stringMap.map[aNote + string])
+        elif eNote.isdigit():
+            string = tabLines[n+3][0]
+            print(stringMap.map[eNote + string])
