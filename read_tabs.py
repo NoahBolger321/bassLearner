@@ -1,5 +1,6 @@
 import os
 from string_map import stringMap
+from collections import Counter
 
 # read tab lines
 root = os.path.dirname(os.path.abspath(__file__))
@@ -21,5 +22,15 @@ def get_notes(notes, num_strings):
     return notes
 
 
+def note_frequency(listNotes, frequencies):
+    for note in list(set(listNotes)):
+        frequencies[note] = listNotes.count(note)
+    return frequencies
+
+
+# storage for all notes, and frequencies of notes
 notesArr = []
-print(get_notes(notesArr, 4))
+freqDict = {}
+allNotes = get_notes(notesArr, 4)
+noteFreq = note_frequency(allNotes, freqDict)
+print(dict(sorted(noteFreq.items(), key=lambda x: x[1], reverse=True)))
