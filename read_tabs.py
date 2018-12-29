@@ -10,7 +10,7 @@ tabLines = [t.strip() for t in tabLines if t.strip() != '']
 
 
 # loop through each grouping of strings, retrieve notes, print mapped note if fret recorded (dynamic # of strings)
-def get_notes(notes, num_strings):
+def get_notes(notes, tabLines, num_strings):
     for n in range(0, len(tabLines), num_strings):
         for i in range(1, len(tabLines[n])):
             for j in range(0, num_strings):
@@ -25,11 +25,3 @@ def note_frequency(listNotes, frequencies):
     for note in list(set(listNotes)):
         frequencies[note] = listNotes.count(note)
     return frequencies
-
-
-# storage for all notes, and frequencies of notes
-notesArr = []
-freqDict = {}
-allNotes = get_notes(notesArr, 4)
-noteFreq = note_frequency(allNotes, freqDict)
-print(dict(sorted(noteFreq.items(), key=lambda x: x[1], reverse=True)))
