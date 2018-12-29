@@ -1,6 +1,11 @@
-class stringMap:
+"""
+    no flats recorded because of character limitations
+"""
+
+
+class Maps:
     # keys > fretString, values > note
-    map = {
+    stringMap = {
               "0E": "E",
               "1E": "F",
               "2E": "F#",
@@ -86,3 +91,31 @@ class stringMap:
               "19G": "D",
               "20G": "D#"
             }
+
+    # mapping between musical keys and their individual notes
+    keyMap = {
+        "C": ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+        "C#": ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'C'],
+        "Cm": ['C', 'D', 'D#', 'F', 'G', 'G#', 'A#'],
+        "C#m": ['C#', 'D#', 'E', 'F#', 'G#', 'A', 'B'],
+        "D": ['D', 'E', 'F#', 'G', 'A', 'B', 'C#'],
+        "D#": ['D#', 'F', 'G', 'G#', 'A#', 'C', 'D'],
+        "Dm": ['D', 'E', 'F', 'G', 'A', 'A#', 'C'],
+        "D#m": ['D#', 'F', 'F#', 'G#', 'A#', 'B', 'C#'],
+        "E": ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'],
+        "Em": ['E', 'F#', 'G', 'A', 'B', 'C', 'D'],
+        "F": ['F', 'G', 'A', 'A#', 'C', 'D', 'E'],
+        "F#": ['F#', 'G#', 'A#', 'B', 'C#', 'D#', 'F'],
+        "Fm": ['F', 'G', 'G#', 'A#', 'C', 'C#', 'D#'],
+        "F#m": ['F#', 'G#', 'A', 'B', 'C#', 'D', 'E'],
+        "G": ['G', 'A', 'B', 'C', 'D', 'E', 'F#'],
+        "Gm": ['G', 'A', 'A#', 'C', 'D', 'D#', 'F', 'G'],
+        "G#": ['G#', 'A#', 'C', 'C#', 'D#', 'F', 'G', 'G#'],
+        "G#m": ['G#', 'A#', 'B', 'C#', 'D#', 'E', 'F#'],
+        "A": ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
+        "Am": ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+        "A#": ['A#', 'C', 'D', 'D#', 'F', 'G', 'A'],
+        "A#m": ['A#', 'C', 'C#', 'D#', 'F', 'F#', 'G#'],
+        "B": ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#', 'B'],
+        "Bm": ['B', 'C#', 'D', 'E', 'F#', 'G', 'A']
+    }

@@ -1,6 +1,5 @@
 import os
-from string_map import stringMap
-from collections import Counter
+from mappings import Maps
 
 # read tab lines
 root = os.path.dirname(os.path.abspath(__file__))
@@ -18,7 +17,7 @@ def get_notes(notes, num_strings):
                 note = tabLines[n+j][i]
                 string = tabLines[n+j][0]
                 if note.isdigit():
-                    notes.append(stringMap.map[note + string])
+                    notes.append(Maps.stringMap[note + string])
     return notes
 
 
