@@ -1,6 +1,7 @@
 import os
 from mappings import Maps
 from read_tabs import get_notes, note_frequency
+from intervals import find_intervals
 
 # read tab lines
 root = os.path.dirname(os.path.abspath(__file__))
@@ -16,6 +17,7 @@ noteFreq = note_frequency(allNotes, freqDict)
 
 
 # find key of tab by summing note frequencies and scoring each key
+# TODO: determine whether key is major or minor depending on most common intervals
 def find_key(counts, allKeys):
     scoredKeys = {}
     for key, notes in allKeys.items():
@@ -30,3 +32,6 @@ def find_key(counts, allKeys):
 # TODO: determine key by score, explore defining characteristics to strengthen determination
 keyOfTab = find_key(noteFreq, Maps.keyMap)
 print(keyOfTab)
+# get intervals by passing in all notes and the most likely key
+intervals = find_intervals(allNotes, list(keyOfTab.keys())[0])
+print(intervals)
