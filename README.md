@@ -11,3 +11,5 @@ The goal of this project is to create a tool that can process and analyze bass t
 - counter that records frequency of each note in the tab
 - key mapping that maps a musical key to a list of notes
 - key determination that can determine or guess the key from a bass tab
+- extract nuances (slides, hammer-ons, pull-offs, vibrato)
+- determine "easiest"/closest fretting for two notes
