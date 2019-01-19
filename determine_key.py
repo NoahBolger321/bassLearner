@@ -11,8 +11,11 @@ with open(path, 'r') as tabText:
 tabLines = [t.strip() for t in tabLines if t.strip() != '']
 
 notesArr = []
+nuancesDict = {}
 freqDict = {}
-allNotes = get_notes(notesArr, tabLines, 4)
+notesRetrieved = get_notes(notesArr, nuancesDict, tabLines, 4)
+allNotes = notesRetrieved['notes']
+nuances = notesRetrieved['nuances']
 noteFreq = note_frequency(allNotes, freqDict)
 
 
@@ -31,7 +34,8 @@ def find_key(counts, allKeys):
 
 # TODO: determine key by score, explore defining characteristics to strengthen determination
 keyOfTab = find_key(noteFreq, Maps.keyMap)
-print(keyOfTab)
 # get intervals by passing in all notes and the most likely key
 intervals = find_intervals(allNotes, list(keyOfTab.keys())[0])
+print(keyOfTab)
 print(intervals)
+print(nuances)

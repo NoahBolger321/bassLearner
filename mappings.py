@@ -119,3 +119,6 @@ class Maps:
         "B": ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#', 'B'],
         "Bm": ['B', 'C#', 'D', 'E', 'F#', 'G', 'A']
     }
+
+    # list of  common tablature characters that denote technique nuances
+    commonChars = ['x', 'h', 'p', 'r', 's', "/"]
