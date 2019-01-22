@@ -1,14 +1,11 @@
 import os
 from mappings import Maps
-from read_tabs import get_notes, note_frequency
+from read_tabs import read_lines, get_notes, note_frequency
 from intervals import find_intervals
 
 # read tab lines
 root = os.path.dirname(os.path.abspath(__file__))
-path = "{}/tablature/hysteria.txt".format(root)
-with open(path, 'r') as tabText:
-    tabLines = tabText.readlines()
-tabLines = [t.strip() for t in tabLines if t.strip() != '']
+tabLines = read_lines(root)
 
 notesArr = []
 nuancesDict = {}

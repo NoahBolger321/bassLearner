@@ -3,10 +3,14 @@ from mappings import Maps
 
 # read tab lines
 root = os.path.dirname(os.path.abspath(__file__))
-path = "{}/tablature/bitesDust.txt".format(root)
-with open(path, 'r') as tabText:
-    tabLines = tabText.readlines()
-tabLines = [t.strip() for t in tabLines if t.strip() != '']
+
+
+def read_lines(rootPath):
+    path = "{}/tablature/daniCalifornia.txt".format(rootPath)
+    with open(path, 'r') as tabText:
+        tabLines = tabText.readlines()
+    tabLines = [t.strip() for t in tabLines if t.strip() != '']
+    return tabLines
 
 
 # loop through each grouping of strings, retrieve notes, print mapped note if fret recorded (dynamic # of strings)
@@ -19,9 +23,12 @@ def get_notes(notes, nuances, tabLines, num_strings):
                 if note.isdigit():
                     notes.append(Maps.stringMap[note + string])
                 # check for special characters and map surrounding notes in list of tuples
-                # TODO: determine how to store surrounding notes
                 elif note in Maps.commonChars:
-                    nuances.setdefault(note, []).append((tabLines[n+j][i-1], tabLines[n+j][i+1]))
+                    try:
+                        surrNotes = (Maps.stringMap[tabLines[n+j][i-1] + string], Maps.stringMap[tabLines[n+j][i+1] + string])
+                        nuances.setdefault(note, []).append(surrNotes)
+                    except KeyError:
+                        continue
     return {'notes': notes, 'nuances': nuances}
 
 
