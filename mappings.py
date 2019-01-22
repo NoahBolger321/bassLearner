@@ -122,3 +122,6 @@ class Maps:
 
     # list of  common tablature characters that denote technique nuances
     commonChars = ['x', 'h', 'p', 'r', 's', "/"]
+
+    # list of all notes for model labelling
+    allNotes = ['B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'B', 'A', 'A#']

@@ -5,7 +5,8 @@ from intervals import find_intervals
 
 # read tab lines
 root = os.path.dirname(os.path.abspath(__file__))
-tabLines = read_lines(root)
+fileName = "daniCalifornia.txt"
+tabLines = read_lines(root, fileName)
 
 notesArr = []
 nuancesDict = {}

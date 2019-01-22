@@ -5,8 +5,8 @@ from mappings import Maps
 root = os.path.dirname(os.path.abspath(__file__))
 
 
-def read_lines(rootPath):
-    path = "{}/tablature/daniCalifornia.txt".format(rootPath)
+def read_lines(rootPath, fileName):
+    path = "{}/tablature/{}".format(rootPath, fileName)
     with open(path, 'r') as tabText:
         tabLines = tabText.readlines()
     tabLines = [t.strip() for t in tabLines if t.strip() != '']
